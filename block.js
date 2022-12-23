@@ -1,3 +1,4 @@
+const SHA256 = require( "crypto-js/sha256" );
 
 // Klasse Block erstellen
 class Block {
@@ -21,6 +22,11 @@ class Block {
     }
 
     // genesis erster Block, intern static auf this schauend
+    static hash( timestamp, lastHash, data ) {
+        return SHA256( `${timestamp}, ${lastHash}, ${data}` ).toString();
+    }
+    
+    // genesis erster Block, intern static auf this schauend
     static genesis() {
         return new this( 
             "Genesis Time",
@@ -32,18 +38,18 @@ class Block {
 
     // zweiter Block in der Chain
         static mineBlock1( lastBlock, data ) {
-            const timestamp = Date.now();                       // Zeitstempel in ms erzeugen
-            const lastHash = lastBlock.hash;                    // übergabe des letzten Hashwertes
-            const hash = "HashBlock1"                           // erzeuge neuen Hashwert
-            return new this( timestamp, lastHash, hash, data ); // erzeuge Ausgabe
+            const timestamp = Date.now();                           // Zeitstempel in ms erzeugen
+            const lastHash = lastBlock.hash;                        // übergabe des letzten Hashwertes
+            const hash = Block.hash( timestamp, lastHash, data );   // erzeuge neuen Hashwert
+            return new this( timestamp, lastHash, hash, data );     // erzeuge Ausgabe
         }
 
     // dritter Block in der Chain
         static mineBlock2( lastBlock, data ) {
-            const timestamp = Date.now();                       // Zeitstempel in ms erzeugen
-            const lastHash = lastBlock.hash;                    // übergabe des letzten Hashwertes
-            const hash = "HashBlock2"                           // erzeuge neuen Hashwert
-            return new this( timestamp, lastHash, hash, data ); // erzeuge Ausgabe
+            const timestamp = Date.now();                           // Zeitstempel in ms erzeugen
+            const lastHash = lastBlock.hash;                        // übergabe des letzten Hashwertes
+            const hash = Block.hash( timestamp, lastHash, data );   // erzeuge neuen Hashwert
+            return new this( timestamp, lastHash, hash, data );     // erzeuge Ausgabe
         }
 }
 module.exports = Block;
