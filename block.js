@@ -12,7 +12,7 @@ class Block {
     // für Debugging Zwecke alles als String Ausgabe
     toString() { 
         return `
-            Block -
+            Block 1 -
                 Timestamp:  ${this.timestamp}
                 Last Hash:  ${this.lastHash}
                 Hash:       ${this.hash}
