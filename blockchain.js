@@ -13,6 +13,7 @@ class Blockchain {
         const block = Block.mineBlock( lastBlock, blockData );
         this.chain.push( block );
     }
+
 }
 
 // Export zum Verwenden von aussen

@@ -32,15 +32,15 @@ const Blockchain = require("./blockchain");
 // Test 3: Verwendung der Blockchain
     // Grundblock - Genensis Block
         const chain = new Blockchain();
-        console.log( chain );
+        // console.log( chain );
 
     // neuen Block hinzufügen
         chain.addBlock( "Daten von Block 1" );
-        console.log( chain );
+        // console.log( chain );
 
     // neuen Block hinzufügen
         chain.addBlock( "Daten von Block 2" );
-        console.log( chain );
+        // console.log( chain );
 
     // neuen Block hinzufügen
         chain.addBlock( "Daten von Block 3" );
