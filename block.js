@@ -37,15 +37,7 @@ class Block {
     }
 
     // zweiter Block in der Chain
-        static mineBlock1( lastBlock, data ) {
-            const timestamp = Date.now();                           // Zeitstempel in ms erzeugen
-            const lastHash = lastBlock.hash;                        // übergabe des letzten Hashwertes
-            const hash = Block.hash( timestamp, lastHash, data );   // erzeuge neuen Hashwert
-            return new this( timestamp, lastHash, hash, data );     // erzeuge Ausgabe
-        }
-
-    // dritter Block in der Chain
-        static mineBlock2( lastBlock, data ) {
+        static mineBlock( lastBlock, data ) {
             const timestamp = Date.now();                           // Zeitstempel in ms erzeugen
             const lastHash = lastBlock.hash;                        // übergabe des letzten Hashwertes
             const hash = Block.hash( timestamp, lastHash, data );   // erzeuge neuen Hashwert

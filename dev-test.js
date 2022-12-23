@@ -16,11 +16,14 @@ const Block = require("./block");
     //console.log( Block.genesis().toString() );
     // Genesis Block
         const genesisBlock = Block.genesis();
-    // erster Block mit Übergabe
-        const testBlock1 = Block.mineBlock1( genesisBlock, "Block1Text" );
-    // zweiter Block mit Übergabe
-        const testBlock2 = Block.mineBlock2( testBlock1, "Block2Text" );
+    // erster Blockchain mit Übergabe
+        const testBlock1 = Block.mineBlock( genesisBlock, "Block1Text" );
+    // zweiter Blockchain mit Übergabe
+        const testBlock2 = Block.mineBlock( testBlock1, "Block2Text" );
+    // dritter Blockchain mit Übergabe
+        const testBlock3 = Block.mineBlock( testBlock2, "Block3Text" );
 
     console.log( genesisBlock.toString() );
     console.log( testBlock1.toString() );
     console.log( testBlock2.toString() );
+    console.log( testBlock3.toString() );
